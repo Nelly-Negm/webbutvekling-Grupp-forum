@@ -11,9 +11,9 @@ app.use("/api", router);
 app.use(express.static(path.join(__dirname, "client")))
 
 mongoose.connect("mongodb+srv://OtakuForumJensen:rEx9nAGlVclnBv1w@otaku-forum-db.8xpz5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-{ useNewUrlParser: true, useUsifiedTopology: true, autoIndex: true},
-() => console.log("Connected to db")
-);
+    { useNewUrlParser: true, useUnifiedTopology: true, autoIndex: true },
+    () => console.log("Connected to db")
+  );
 
 const PORT = process.env.PORT || 5000;
 

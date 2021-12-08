@@ -16,10 +16,11 @@
             </div>
             <div id="body-container">
                 <div class="main-window">
+                    <span id="response-message"></span>
                     <div class="forum-container">
                         <div class="forum-information">
-                            <h1>Category</h1>
-                            <a href="#"><i class="fas fa-plus"></i></a>
+                            <h1>Posts</h1>
+                            <a onclick="showForm()"><i class="fas fa-plus"></i></a>
                         </div>
                         <div class="forum-topics"></div>
                     </div>
@@ -41,6 +42,29 @@
                         </div>
                     </div>
                 </div>
+                <div class="form-modal">
+                    <span class="form-modal-exit"><a onclick="exitFormModal()"><i class="fas fa-times"></i></a></span>
+                    <form onsubmit="newPost(); return false;">
+                        <h2>New post</h2>
+                        <div class="form-text-field">
+                            <label><i class="fas fa-at"></i></label>
+                            <input id="post-email" placeholder="Email">
+                        </div>
+                        <div class="form-text-field">
+                            <label><i class="fas fa-user"></i></label>
+                            <input id="post-username" placeholder="Username">
+                        </div>
+                        <div class="form-text-field">
+                            <label><i class="fas fa-tag"></i></label>
+                            <input id="post-title" placeholder="Subject">
+                        </div>                       
+                        <div class="form-text-field">
+                            <label id="post-label"><i class="far fa-comment-dots"></i></label>
+                            <textarea id="post-content" placeholder="Message"></textarea>
+                        </div>                       
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
             </div>
             <div id="footer-container">
                 <i class="fab fa-facebook"></i> <!--ADD A-TAG! -->
@@ -49,6 +73,6 @@
             </div>
         </div>
     </section>
+    <script src="app.js"></script>
 </body>
-<script src="app.js"></script>
 </html>

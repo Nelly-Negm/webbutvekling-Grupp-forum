@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
+    transition: 0.3s;
 }
 #content-container{
     width: 100%;
@@ -40,6 +41,20 @@
     flex-direction: row;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
+#response-message{
+    display: none;
+    width: 34%;
+    height: 50vh;
+    position: absolute;
+    top: 6.6%;
+    left: 32.6%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    font-size: 25px;
+    font-weight: 700;
+    text-align: center;
+}
 .forum-container{
     width: 100%;
     height: 75vh;
@@ -65,6 +80,7 @@
     font-size: 25px;
     color: white;
     margin-right: 15px;
+    cursor: pointer;
 }
 .forum-topics{
     width: 97.5%;
@@ -72,6 +88,101 @@
     margin-left: 2.5%;
     border-radius: 5px;
     background-color: whitesmoke;
+    overflow: auto;
+}
+.forum-update-form{
+    display: none;
+    width: 34%;
+    height: 50vh;
+    position: absolute;
+    top: 6.6%;
+    left: 32.6%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.forum-update-form h2{
+    text-align: center;
+    padding: 20px 0 20px 0;
+    font-variant: small-caps;
+}
+.update-form-field{
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+    height: 30px;
+}
+.forum-update-form input{
+    width: 60%;
+    border: none;
+    border-bottom: 1px solid black;
+    font-size: 15px;
+    outline: none;
+}
+.forum-update-form textarea{
+    width: 60%;
+    border: none;
+    border-bottom: 1px solid black;
+    font-size: 15px;
+    height: 60px;
+}
+.forum-update-form textarea::placeholder{
+    padding-top: 40px;
+}
+.forum-update-form button{
+    padding: 10px 15px;
+    background-color: white;
+    border: 1.5px solid #3b4559;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #3B4559;
+    cursor: pointer;
+    transition: 0.3s;
+    position: absolute;
+    bottom: 7.5%;
+    right: 17.5%;
+}
+.forum-update-form button:hover{
+    background-color: #3b4559;
+    color: white;
+}
+#post{
+    border-bottom: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+}
+.post-message{
+    padding: 5px;    
+}
+.post-message h4{
+    margin-bottom: 5px;
+    font-size: 17.5px;
+}
+.post-rightside{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-left: 40px;
+}
+.post-edit{
+    margin: 10px 10px 20px 10px;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+.post-edit a{
+    margin-left: 5px;
+    cursor: pointer;
+}
+.post-user{
+    text-align: end;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+.post-user h4{
+    font-size: 15px;
+    font-weight: 600;
+    font-style: italic;
 }
 .navigation-container{
     width: 70%;
@@ -112,6 +223,86 @@
     margin-top: 1.5%;
     border-radius: 5px;
     background-color: whitesmoke;
+}
+.form-modal{
+    display: none;
+    width: 30%;
+    height: 50vh;
+    position: absolute;
+    top: 20%;
+    left: 35%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.form-modal-exit{
+    width: 15%;
+    height: 15%;
+    background-color: white;
+    position: absolute;
+    top: -6%;
+    right: -6%;
+    border-radius: 50%;
+}
+.form-modal-exit a{
+    position: absolute;
+    top: 17.5%;
+    right: 30%;
+    font-size: 35px;
+    cursor: pointer;
+}
+.form-modal h2{
+    text-align: center;
+    padding: 20px 0 20px 0;
+    font-variant: small-caps;
+}
+.form-text-field{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    height: 30px;
+}
+.form-text-field input{
+    width: 60%;
+    border: none;
+    border-bottom: 1px solid black;
+    font-size: 15px;
+    outline: none;
+}
+.form-text-field textarea{
+    width: 60%;
+    border: none;
+    border-bottom: 1px solid black;
+    font-size: 15px;
+    height: 50px;
+}
+.form-text-field textarea::placeholder{
+    padding-top: 30px;
+}
+#post-label{
+    margin-top: 25px;
+}
+.form-text-field label{
+    font-size: 20px;
+    margin: 5px 10px 0 0;
+}
+.form-modal form button{
+    padding: 10px 15px;
+    background-color: white;
+    border: 1.5px solid #3b4559;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #3B4559;
+    cursor: pointer;
+    transition: 0.3s;
+    position: absolute;
+    bottom: 7.5%;
+    right: 17.5%;
+}
+.form-modal form button:hover{
+    background-color: #3b4559;
+    color: white;
 }
 #footer-container{
     width: 100%;

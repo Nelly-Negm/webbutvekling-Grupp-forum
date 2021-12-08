@@ -5,6 +5,8 @@ const Post = require("../models/Post");
 router.post("/newpost", (req, res) => {
   console.log(req.body);
   const newPost = new Post({
+    email: req.body.email,
+    username: req.body.username,
     title: req.body.title,
     content: req.body.content,
   });
