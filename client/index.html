@@ -65,11 +65,24 @@
                         <button type="submit">Submit</button>
                     </form>
                 </div>
+                <div class="forum-update-form">
+                    <span class="form-modal-exit"><a onclick="exitFormModal()"><i class="fas fa-times"></i></a></span>
+                    <h2>Update post</h2>
+                    <form id="update-form" onsubmit="updatePost('${post._id}'); return false;">
+                        <div class="update-form-field">
+                            <input id="update-post-'${post._id}'-title" placeholder="Subject">
+                        </div>
+                        <div class="update-form-field">
+                            <textarea id="update-post-'${post._id}'-content" placeholder="Message"></textarea>
+                        </div>
+                        <button type="submit">Update</button>
+                    </form>
+                </div>
             </div>
             <div id="footer-container">
-                <i class="fab fa-facebook"></i> <!--ADD A-TAG! -->
-                <i class="fab fa-twitter"></i>
-                <i class="fab fa-instagram"></i>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
     </section>

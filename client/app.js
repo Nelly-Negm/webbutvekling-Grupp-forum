@@ -4,8 +4,9 @@ let posts = [];
 
 //Respons message
 const showResponseMessage = (message) => {
-    document.querySelector("#response-message").style.display = "block"
-    document.querySelector("#response-message").innerHTML = message;
+        document.querySelector("#response-message").style.display = "block"
+        document.querySelector("#response-message").innerHTML = message;
+
     setTimeout(() => {
         document.querySelector("#response-message").innerHTML = "";
         document.querySelector("#response-message").style.display = "none"
@@ -17,39 +18,41 @@ const getPosts = async () => {
     const res = await fetch(`${rootURL}getposts`);
     const data = await res.json();
     posts = data.posts;
-    document.querySelector(".forum-topics").innerHTML = posts.map(post => `<div id="post">
-    <div class="post-message">
-        <h4 id="'${post._id}'-title">${post.title}</h4>
-        <p id="'${post._id}'-content">${post.content}</p>
-    </div>
-    <div class="post-rightside">
-    <div class="post-edit">
-    <a class="update-icon" onclick="showUpdateForm()"><i class="fas fa-cog"></i></a>
-    <a class="delete-icon" onclick="deletePost('${post._id}')"><i class="fas fa-trash-alt"></i></a>
-    </div>
-    <div class="post-user">
-            <h4 id="'${post._id}'-username">${post.username}</h4>
-            <h4 id="'${post._id}'-email">${post.email}</h4>
-            </div>
-            </div>
-            <div class="forum-update-form">
-            <span class="form-modal-exit"><a onclick="exitFormModal()"><i class="fas fa-times"></i></a></span>
-            <h2>Update post</h2>
-            <form id="update-form" onsubmit="updatePost('${post._id}'); return false;">
-            <div class="update-form-field">
-            <input id="update-post-'${post._id}'-title" placeholder="Subject">
-            </div>
-            <div class="update-form-field">
-            <textarea id="update-post-'${post._id}'-content" placeholder="Message"></textarea>
-            </div>
-            <button type="submit">update</button>
-        </form>
+    document.querySelector(".forum-topics").innerHTML = posts.map(post => `
+    <div id="post">
+        <div class="post-message">
+            <h4 id="'${post._id}'-title">${post.title}</h4>
+            <p id="'${post._id}'-content">${post.content}</p>
         </div>
-    </div>`).join("");
-};
+        <div class="post-rightside">
+            <div class="post-edit">
+                <a class="update-icon" onclick="showUpdateForm('${post._id}')"><i class="fas fa-cog"></i></a>
+                <a class="delete-icon" onclick="deletePost('${post._id}')"><i class="fas fa-trash-alt"></i></a>
+            </div>
+            <div class="post-user">
+                <h4 id="'${post._id}'-username">${post.username}</h4>
+                <h4 id="'${post._id}'-email">${post.email}</h4>
+            </div>
+        </div>
+        <div id="forum-update-${post._id}" class="forum-update-form">
+                    <span class="form-modal-exit"><a onclick="exitFormModal()"><i class="fas fa-times"></i></a></span>
+                    <h2>Update post</h2>
+                    <form id="update-form" onsubmit="updatePost('${post._id}'); return false;">
+                    <div class="update-form-field">
+                        <input id="update-post-'${post._id}'-title" placeholder="Subject">
+                    </div>
+                    <div class="update-form-field">
+                        <textarea id="update-post-'${post._id}'-content" placeholder="Message"></textarea>
+                        </div>
+                        <button type="submit">Update</button>
+                    </form>
+                </div>
+                </div>`).join("");
+            };
 
-//NEW POST
-const newPost = async () => {
+
+            //NEW POST
+            const newPost = async () => {
     const email = document.querySelector("#post-email").value;
     const username = document.querySelector("#post-username").value;
     const title = document.querySelector("#post-title").value;
@@ -102,6 +105,11 @@ const updatePost = async (id) => {
     showResponseMessage(data.message.msgBody)
 }
 
+const showUpdateForm = (id) => {
+    const updateForm = document.getElementById("forum-update-"+id);
+    updateForm.style.display = "block";
+}
+
 //DELETE POST
 const deletePost = async (id) => {
     const res = await fetch(`${rootURL}deletepost/${id}`, {
@@ -119,18 +127,13 @@ window.addEventListener("load", getPosts)
 //FORM MODAL
 const formModal = document.getElementsByClassName("form-modal")[0];
 const mainPage = document.getElementById("content-container");
-const updateForm = document.getElementsByClassName("forum-update-form")[0];
 
+//SHOW FORMS
 const showForm = () => {
     formModal.style.display = "block";
 }
-
+//EXIT FORMS
 const exitFormModal = () => {
     formModal.style.display = "none";
     updateForm.style.display = "none";
-}
-
-//UPDATE FORM
-const showUpdateForm = () => {
-    updateForm.style.display = "block";
 }

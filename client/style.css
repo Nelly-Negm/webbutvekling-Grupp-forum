@@ -51,8 +51,11 @@
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-    font-size: 25px;
+}
+#response-message h3{
+    font-size: 22.5px;
     font-weight: 700;
+    margin-top: 20%;
     text-align: center;
 }
 .forum-container{
@@ -312,7 +315,10 @@
     align-items: center;
     background-color: #3B4559;
 }
-#footer-container i{
+#footer-container a{
+    cursor: pointer;
+}
+#footer-container a i{
     font-size: 35px;
     margin-top: 40px;
     padding: 15px;

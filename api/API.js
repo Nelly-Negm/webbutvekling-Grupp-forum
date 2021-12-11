@@ -15,13 +15,14 @@ router.post("/newpost", (req, res) => {
       console.log(err);
       res.status(500).json({
         message: {
-          msgBody: "An error occured while saving post",
+          msgBody: '<h3>An error occured while saving post</h3>',
           msgError: true,
         },
       });
     } else {
       res.status(201).json({
-        message: { msgBody: "Post successfully created", msgError: false },
+        message: { msgBody: "<h3>Post successfully created</h3>", 
+        msgError: false },
       });
     }
   });
@@ -32,7 +33,7 @@ router.get("/getposts", (req, res) => {
     if (err) {
       res.status(500).json({
         message: {
-          msgBody: "An error occured while saving post",
+          msgBody: "<h3>An error occured while saving post</h3>",
           msgError: true,
         },
       });
@@ -50,13 +51,14 @@ router.put("/updatepost/:id", (req, res) => {
       if (err) {
         res.status(500).json({
           message: {
-            msgBody: "An error occured updating post",
+            msgBody: "<h3>An error occured updating post</h3>",
             msgError: true,
           },
         });
       } else {
         res.status(200).json({
-          message: { msgBody: "Post successfully updated", msgError: false },
+          message: { msgBody: "<h3>Post successfully updated</h3>", 
+          msgError: false },
         });
       }
     }
@@ -68,13 +70,14 @@ router.delete("/deletepost/:id", (req, res) => {
     if (err) {
       res.status(500).json({
         message: {
-          msgBody: "An error occured deleting post",
+          msgBody: "<h3>An error occured deleting post</h3>",
           msgError: true,
         },
       });
     } else {
       res.status(200).json({
-        message: { msgBody: "Post successfully deleted", msgError: false },
+        message: { msgBody: "<h3>Post successfully deleted</h3>", 
+        msgError: false },
       });
     }
   });
