@@ -124,16 +124,45 @@ const deletePost = async (id) => {
 window.addEventListener("load", getPosts)
 
 
+
 //FORM MODAL
 const formModal = document.getElementsByClassName("form-modal")[0];
 const mainPage = document.getElementById("content-container");
+const updateForm = document.getElementsByClassName("forum-update-form")[0];
 
-//SHOW FORMS
 const showForm = () => {
     formModal.style.display = "block";
 }
-//EXIT FORMS
+
 const exitFormModal = () => {
     formModal.style.display = "none";
     updateForm.style.display = "none";
 }
+
+//UPDATE FORM
+const showUpdateForm = () => {
+    updateForm.style.display = "block";
+}
+
+let myIndex = 0;
+carousel();
+
+function carousel() {
+  let i;
+  let x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";  
+  setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+
+//Loader
+const progress = document.querySelector('.progress-done');
+
+progress.style.width = progress.getAttribute('data-done') + '%';
+progress.style.opacity = 1;
+
+//Loader End
