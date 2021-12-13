@@ -21,6 +21,7 @@ router.post("/newpost", (req, res) => {
         },
       });
     } else {
+      postAddedEmail(req.body)
       res.status(201).json({
         message: { msgBody: "<h3>Post successfully created</h3>", 
         msgError: false },

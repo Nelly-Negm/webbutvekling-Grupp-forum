@@ -13,7 +13,7 @@ const transport = nodemailer.createTransport(
 const postAddedEmail = (post) => {
   transport
     .sendMail({
-      from: "<otaku.jensen@hotmail.com>",
+      from: "<otaku.jensen.sendgrid@hotmail.com>",
       to: `${post.username} <${post.email}>`,
       subject: "Message receieved",
       text: `Hi ${post.f}, your message (${post.title}) has been receieved`,
