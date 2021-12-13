@@ -19,8 +19,9 @@ router.post("/newpost", (req, res) => {
           msgBody: '<h3>An error occured while saving post</h3>',
           msgError: true,
         },
-      });
+      }); 
     } else {
+      postAddedEmail(req.body)
       res.status(201).json({
         message: { msgBody: "<h3>Post successfully created</h3>", 
         msgError: false },
