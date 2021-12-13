@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Post = require("../models/Post");
+const { postAddedEmail } = require("../services/EmailService");
 
 router.post("/newpost", (req, res) => {
   console.log(req.body);
