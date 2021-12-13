@@ -139,11 +139,6 @@ const exitFormModal = () => {
     updateForm.style.display = "none";
 }
 
-//UPDATE FORM
-const showUpdateForm = () => {
-    updateForm.style.display = "block";
-}
-
 let myIndex = 0;
 carousel();
 
