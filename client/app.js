@@ -1,22 +1,22 @@
-//Christian & Lovisa testar git
 
 const rootURL = "http://localhost:5000/api/"
 
 let posts = [];
 
 //Respons message
-const showResponseMessage = (message) => {
+const showResponseMessage = (message) => { //This function sends a response message if the post has been posted or not.
         document.querySelector("#response-message").style.display = "block"
         document.querySelector("#response-message").innerHTML = message;
 
-    setTimeout(() => {
+    setTimeout(() => { //The response message shows for one second.
         document.querySelector("#response-message").innerHTML = "";
         document.querySelector("#response-message").style.display = "none"
     }, 1000);
 }
 
 //GET POSTS
-const getPosts = async () => {
+const getPosts = async () => { //Gets all the posts from the databas and render it out inside the div named "post", with functions where you can
+    //delete or update your post.
     const res = await fetch(`${rootURL}getposts`);
     const data = await res.json();
     posts = data.posts;
@@ -54,7 +54,7 @@ const getPosts = async () => {
 
 
             //NEW POST
-            const newPost = async () => {
+            const newPost = async () => { //This function creates a new post.
     const email = document.querySelector("#post-email").value;
     const username = document.querySelector("#post-username").value;
     const title = document.querySelector("#post-title").value;
@@ -77,7 +77,7 @@ const getPosts = async () => {
     const data = await res.json();
     document.getElementsByClassName("form-modal")[0].style.display = "none"
     getPosts();
-    showResponseMessage(data.message.msgBody)
+    showResponseMessage(data.message.msgBody) //Sends out a response message if the post is created or not.
     
     document.querySelector("#post-email").value = "";
     document.querySelector("#post-username").value = "";
@@ -86,7 +86,7 @@ const getPosts = async () => {
 }
 
 //UPDATE POST
-const updatePost = async (id) => {
+const updatePost = async (id) => { //This functions let you update the title and message on your post.
     const title = document.getElementById(`update-post-'${id}'-title`).value;
     const content = document.getElementById(`update-post-'${id}'-content`).value;
     
@@ -107,13 +107,13 @@ const updatePost = async (id) => {
     showResponseMessage(data.message.msgBody)
 }
 
-const showUpdateForm = (id) => {
+const showUpdateForm = (id) => { //Gets the id on the post you want to update.
     const updateForm = document.getElementById("forum-update-"+id);
     updateForm.style.display = "block";
 }
 
 //DELETE POST
-const deletePost = async (id) => {
+const deletePost = async (id) => { //Deletes posts.
     const res = await fetch(`${rootURL}deletepost/${id}`, {
         method: "delete",
     });
@@ -132,19 +132,19 @@ const formModal = document.getElementsByClassName("form-modal")[0];
 const mainPage = document.getElementById("content-container");
 const updateForm = document.getElementsByClassName("forum-update-form")[0];
 
-const showForm = () => {
+const showForm = () => { //Shows the form modal when clicking the "plus"-icon.
     formModal.style.display = "block";
 }
 
-const exitFormModal = () => {
+const exitFormModal = () => { //Exits the form modal.
     formModal.style.display = "none";
     updateForm.style.display = "none";
 }
 
 let myIndex = 0;
-carousel();
+otakuSlider();
 
-function carousel() {
+function otakuSlider() { //This function will automaticlly swap between the images on the slider every 2seconds.
   let i;
   let x = document.getElementsByClassName("mySlides");
   for (i = 0; i < x.length; i++) {
@@ -153,6 +153,6 @@ function carousel() {
   myIndex++;
   if (myIndex > x.length) {myIndex = 1}    
   x[myIndex-1].style.display = "block";  
-  setTimeout(carousel, 2000); // Change image every 2 seconds
+  setTimeout(otakuSlider, 2000); 
 }
 

@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const PostSchema = mongoose.Schema({
+const PostSchema = mongoose.Schema({ //The different inputs that is required when creating a new post.
     email: {
         type: String,
         required: true,
