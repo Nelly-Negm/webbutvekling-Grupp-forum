@@ -159,10 +159,3 @@ function carousel() {
   setTimeout(carousel, 2000); // Change image every 2 seconds
 }
 
-//Loader
-const progress = document.querySelector('.progress-done');
-
-progress.style.width = progress.getAttribute('data-done') + '%';
-progress.style.opacity = 1;
-
-//Loader End
