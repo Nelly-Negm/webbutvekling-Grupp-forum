@@ -26,14 +26,5 @@ const postAddedEmail = (post) => {
     .catch((err) => console.log(err));
 };
 
-//from property alternatives
-/*
-from: {
-          email: "christianjohannesson@live.se",
-          name: "Christian"
-      },
-fromName: "Christian",
-*/
-
 //syntax used to be able to export multiple functions from the same module
 exports.postAddedEmail = postAddedEmail;
